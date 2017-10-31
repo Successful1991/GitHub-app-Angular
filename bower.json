@@ -1,0 +1,17 @@
+{
+  "name": "maket6",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Artem <19successful91@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
