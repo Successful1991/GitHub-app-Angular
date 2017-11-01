@@ -1,0 +1,180 @@
+body, ul, li {
+  margin: 0;
+  padding: 0; }
+  body *, ul *, li * {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box; }
+
+.product {
+  min-width: 960px;
+  min-height: 660px; }
+
+.topbar {
+  width: auto;
+  height: 30px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background: #373737;
+  color: #919191;
+  padding: 0 10px;
+  border-bottom: 1px solid #000; }
+
+.setting {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center; }
+
+.setting__client {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  text-decoration: none; }
+  .setting__client li {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    height: 100%;
+    padding: 0 15px;
+    list-style: none;
+    text-transform: capitalize;
+    background: transparent; }
+  .setting__client li:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: white; }
+
+.brand {
+  height: 20px;
+  width: 20px;
+  background: url("../img/github-logo.svg") no-repeat;
+  background-size: 20px; }
+
+.current {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 14px;
+  background: #373737;
+  color: #fff; }
+
+.current__repository, .current__branch, .current__pull {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 50px;
+  width: 250px;
+  border-right: 1px solid #000;
+  padding: 0 10px; }
+
+.minimize {
+  height: 0;
+  width: 10px;
+  border-bottom: 1px solid #8e8e8e; }
+
+.maximize {
+  height: 10px;
+  width: 10px;
+  border: 1px solid #8e8e8e; }
+
+.closed {
+  height: 0;
+  width: 10px; }
+
+.closed:after, .closed:before {
+  position: absolute;
+  content: "";
+  height: 0;
+  width: 15px;
+  border-top: 1px solid #8e8e8e; }
+
+.closed:after {
+  -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+          transform: rotate(45deg); }
+
+.closed:before {
+  -webkit-transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg);
+          transform: rotate(-45deg); }
+
+.close {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100%;
+  text-decoration: none; }
+  .close li {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    list-style: none;
+    margin: 0 10px; }
+
+.current__open-img {
+  height: 0;
+  width: 0;
+  border: 5px solid transparent;
+  border-top: 5px solid #ffffff; }
+
+.body {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  width: 100%; }
+
+.left__bar {
+  width: 250px;
+  height: 100%;
+  border-right: 1px solid #919191; }
+
+.left__bar-button {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%; }
+  .left__bar-button button {
+    width: 50%;
+    height: 25px;
+    text-decoration: none;
+    background: #ffffff;
+    border: 1px solid #8e8e8e; }
