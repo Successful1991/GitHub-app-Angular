@@ -16,9 +16,7 @@
       getRepositories: getRepositories,
       getFavoriteRepositories: getFavoriteRepositories,
       setFavoriteRepositories: setFavoriteRepositories,
-      delFavoriteRepositories:delFavoriteRepositories,
-      getDetailRepository: getDetailRepository
-
+      delFavoriteRepositories:delFavoriteRepositories
     };
 
     if(!Array.isArray($localStorage.favoriteRepositories)){
@@ -47,8 +45,6 @@
       let url = searchOption();
       return $http.get(url)
         .then(function (response) {
-          // setRepositories(response.data.items);
-          // return response.data.items
 
           if(response && response.data && response.data.items) {
             setRepositories(response.data.items);
@@ -86,14 +82,11 @@
       let favoriteRepeats = false;
 
       if($localStorage.favoriteRepositories.length === 0 ){
-
         $localStorage.favoriteRepositories.push(repo);
-
       } else{
 
         $localStorage.favoriteRepositories.forEach((res) => {
           if(repo.id === res.id) {
-
             return favoriteRepeats = true;
           }
         });
@@ -115,47 +108,8 @@
         }}
       )}
 
-    function getDetailRepository() {
-
-    }
-
   }
 
-
-
-
-  //   let clickStarId = event.target.dataset.id;
-  //   let vremennaya = null;
-  //
-  //   $scope.resultat.forEach((res) => {
-  //     if (parseInt(clickStarId) === res.id) {
-  //       console.log("res или $scope.resultat", res);
-  //       if ($scope.favorit.length === 0) {
-  //         $scope.favorit.push(res);
-  //         storageAdd();
-  //       }
-  //       vremennaya = {...res};
-  //       return;
-  //     }
-  //   });
-  //
-  //
-  //   let izbraniy = false;
-  //
-  //   $scope.favorit.forEach((fav) => {
-  //     if (fav.id === parseInt(clickStarId)) {
-  //       izbraniy = true;
-  //       return;
-  //     }
-  //   });
-  //
-  //
-  //   izbraniy ? console.log("репозиторий уже в избранном") : $scope.favorit.push(vremennaya);
-  //
-  //
-  //   if (izbraniy !== true) {
-  //     storageAdd();
-  //   }
 
 
 })();

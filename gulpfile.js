@@ -7,7 +7,7 @@ var browserSync = require('browser-sync').create();
 
 //--server--//
 gulp.task('server', function() {
-	gulp.src('app')
+	gulp.src('')
 		.pipe(server({
 			livereload: true,
 			open: true
@@ -17,7 +17,7 @@ gulp.task('server', function() {
 //--compiler--//
 gulp.task('sass', function () {
 
-	return gulp.src('app/sass/*.scss')
+	return gulp.src('/app/sass/*.scss')
 		.pipe(sass().on('error', sass.logError))
 		.pipe(prefix({
 			browsers:['last 6 versions']
@@ -26,7 +26,7 @@ gulp.task('sass', function () {
 });
 
 gulp.task('watch', function () {
-	gulp.watch('app/sass/*.scss', ['sass']);
+	gulp.watch('/app/sass/*.scss', ['sass']);
 });
 
 gulp.task('default', ['server','watch']);

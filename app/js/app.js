@@ -6,15 +6,15 @@
     .config(function ($routeProvider) {
       $routeProvider
         .when('/', {
-          templateUrl: 'html/home.html',
+          templateUrl: 'app/html/home.html',
           controller: 'GitHubHomeCtrl'
         })
         .when('/favorites', {
-          templateUrl: 'html/favorites.html',
+          templateUrl: 'app/html/favorites.html',
           controller: 'GitHubFavoriteCtrl'
         })
         .when('/contact', {
-          templateUrl: 'html/contact.html',
+          templateUrl: 'app/html/contact.html',
           controller: 'GitHubContactCtrl'
         })
         .otherwise({
