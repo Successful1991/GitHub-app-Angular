@@ -1,0 +1,25 @@
+<div ng-app="GitHubHomeCtrl" class="home">
+
+    <label><input type="radio" name="radio" id="user" checked>user</label>
+    <label><input type="radio" name="radio" id="repository">repository</label>
+    <br>
+    <input type="text" id="searchInput" ng-model="user">
+    <input type="button" ng-click="searchClick()" value="кнопка">
+
+    <div>
+        <ul ng-click="clickStar($event)" class="list__repos">
+            <li ng-repeat="repos in repositories" >
+                <img src="img/star.svg" alt="" class="favorites" data-id="{{repos.id}}" ng-click="setFavorite(repos)">
+                {{repos.owner.login}}
+                {{repos.name}}
+                <a href="{{repos.html_url}}">
+                    link GitHub repositories
+                </a>
+            </li>
+        </ul>
+    </div>
+
+
+
+
+</div>

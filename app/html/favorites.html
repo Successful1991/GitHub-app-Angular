@@ -1,0 +1,15 @@
+<div ng-app="GitHubFavoriteCtrl"  class="home">
+    <div>
+        <ul>
+            <li ng-repeat="favor in seeFavorite">
+                {{favor.owner.login}}
+                {{favor.name}}
+                <a href="{{favor.html_url}}">
+                    link GitHub repositories
+                </a>
+                <input type="button" ng-click="delFavorite(favor)" value="удалить">
+            </li>
+        </ul>
+    </div>
+</div>
+

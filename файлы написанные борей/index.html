@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ru" ng-app="GitHubClient">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="css/myStyle.css">
+	<title>Git Hub </title>
+</head>
+<body ng-controller="GitHubController">
+<div class="product">
+    <div class="header">
+        <ul class="menu">
+            <li>GitHub</li>
+            <li>Home</li>
+            <li>favorites</li>
+            <li>contact</li>
+        </ul>
+    </div>
+    <div class="body">
+        <form action="" class="github">
+            <label for="git" class="github-label">https://github.com/</label>
+            <input type="text" id="git" ng-model="users">
+        </form>
+        <!--{{userList}} ng-change="updateRepos()" -->
+    </div>
+    <label>
+        Search repos
+        <input ng-model="userSearch" ng-keyup="updateRepos($event)"/>
+        <input type="button" ng-click="clickButton()" value="поиск">
+    </label>
+    <div style="margin-left: 50px">
+        <ul ng-if="repositories.length > 0">
+            <li ng-repeat="repo in repositories">
+                {{repo.full_name}}
+                <a ng-href="{{repo.html_url}}" target="_blank">GitHub Link</a>
+            </li>
+        </ul>
+    </div>
+</div>
+</body>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+<script src="js/controller.js"></script>
+<script src="js/model.js"></script>
+</html>
