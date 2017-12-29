@@ -11,7 +11,8 @@ li {
 
 .favorites {
   height: 18px;
-  width: 18px; }
+  width: 18px;
+  fill: #FAC917; }
 
 .navigation {
   display: -webkit-box;
@@ -23,14 +24,14 @@ li {
       -ms-flex-align: center;
           align-items: center;
   height: 50px;
-  background: #3b717d;
+  background: #FF8900;
   margin: 0;
   padding-left: 100px;
   color: #d5d5d5;
   font-family: Georgia; }
   .navigation a, .navigation a:hover, .navigation a:active, .navigation a:focus, .navigation a:visited {
     text-decoration: none;
-    color: #020f7d; }
+    color: #1729B0; }
 
 .list {
   padding: 0 20px;
@@ -61,3 +62,66 @@ li {
   height: 24px;
   width: 24px;
   margin-right: 8px; }
+
+.star-blue {
+  fill: #1729B0; }
+
+.repositories__data, .favorites__data {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 768px;
+  height: 22px; }
+
+.repositories__data:hover {
+  background: #d5d5d5; }
+
+.repositories__user, .repositories__url, .repositories__name {
+  display: inline-block;
+  width: 30%; }
+
+.repositories__data-head {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 25px;
+  width: 768px;
+  font-size: 18px;
+  font-family: "Arial";
+  background: #c5c5c5;
+  margin-bottom: 10px; }
+
+.repositories__star {
+  height: 18px;
+  width: 18px; }
+
+.button__delete {
+  width: 60px;
+  height: 22px;
+  border-radius: 5px;
+  font-size: 12px;
+  color: #000000;
+  border: 2px solid #c5c5c5;
+  background-color: #efefef;
+  -webkit-transition: background 2s linear,border 2s linear,color 2s linear;
+  -o-transition: background 2s linear,border 2s linear,color 2s linear;
+  transition: background 2s linear,border 2s linear,color 2s linear; }
+
+.button__delete:hover {
+  background-color: #969696;
+  border-color: #e2e2e2;
+  color: #fff; }
+
+.favorites__data {
+  height: 25px;
+  padding-left: 20px; }
+
+.favorites__user, .favorites__url, .favorites__name {
+  display: inline-block;
+  min-width: 25%; }

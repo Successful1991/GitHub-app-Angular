@@ -1,8 +1,8 @@
-var gulp = require('gulp');
-var server = require('gulp-server-livereload');
-var sass = require('gulp-sass');
-var prefix = require('gulp-autoprefixer');
-var browserSync = require('browser-sync').create();
+const gulp = require('gulp');
+const server = require('gulp-server-livereload');
+const sass = require('gulp-sass');
+const prefix = require('gulp-autoprefixer');
+const browserSync = require('browser-sync').create();
 
 
 //--server--//
@@ -17,7 +17,7 @@ gulp.task('server', function() {
 //--compiler--//
 gulp.task('sass', function () {
 
-	return gulp.src('/app/sass/*.scss')
+	return gulp.src('app/sass/*.scss')
 		.pipe(sass().on('error', sass.logError))
 		.pipe(prefix({
 			browsers:['last 6 versions']
@@ -26,7 +26,7 @@ gulp.task('sass', function () {
 });
 
 gulp.task('watch', function () {
-	gulp.watch('/app/sass/*.scss', ['sass']);
+	gulp.watch('app/sass/*.scss', ['sass']);
 });
 
 gulp.task('default', ['server','watch']);

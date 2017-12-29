@@ -1,13 +1,21 @@
 <div ng-app="GitHubFavoriteCtrl"  class="home">
     <div>
         <ul>
-            <li ng-repeat="favor in seeFavorite">
-                {{favor.owner.login}}
-                {{favor.name}}
-                <a href="{{favor.html_url}}">
-                    link GitHub repositories
-                </a>
-                <input type="button" ng-click="delFavorite(favor)" value="удалить">
+            <li class="repositories__data-head">
+                <div class="repositories__star"></div>
+                <div class="favorites__user">user</div>
+                <div class="favorites__name">name of a repository</div>
+                <div class="favorites__url">reference to a repository</div>
+            </li>
+            <li ng-repeat="favor in seeFavorite" class="favorites__data">
+                <div class="favorites__user">{{favor.owner.login}}</div>
+                <div class="favorites__name">{{favor.name}}</div>
+                <div class="favorites__url">
+                    <a href="{{favor.html_url}}">
+                        link GitHub repositories
+                    </a>
+                </div>
+                <input type="button" ng-click="delFavorite(favor)" value="удалить" class="button__delete">
             </li>
         </ul>
     </div>

@@ -12,19 +12,20 @@ li{
 .favorites{
   height: 18px;
   width: 18px;
+  fill: #FAC917;
 }
 .navigation{
   display: flex;
   align-items: center;
   height: 50px;
-  background: #3b717d;
+  background: #FF8900;
   margin: 0;
   padding-left: 100px;
   color: #d5d5d5;
   font-family: Georgia;
   a,a:hover,a:active,a:focus,a:visited
   {text-decoration: none;
-  color: #020f7d
+  color: #1729B0;
   }
 }
 .list{
@@ -50,4 +51,56 @@ li{
   height: 24px;
   width: 24px;
   margin-right: 8px;
+}
+.star-blue{
+  fill: #1729B0;
+}
+.repositories__data,.favorites__data{
+  display: flex;
+  width: 768px;
+  height: 22px;
+}
+.repositories__data:hover{
+  background: #d5d5d5;
+}
+.repositories__user,.repositories__url,.repositories__name{
+  display: inline-block;
+  width: 30%;
+}
+.repositories__data-head{
+  display: flex;
+  align-items: center;
+  height: 25px;
+  width: 768px;
+  font-size: 18px;
+  font-family: "Arial";
+  background: #c5c5c5;
+  margin-bottom: 10px;
+}
+.repositories__star{
+  height: 18px;
+  width: 18px;
+}
+.button__delete{
+  width: 60px;
+  height: 22px;
+  border-radius: 5px;
+  font-size: 12px;
+  color: #000000;
+  border: 2px solid #c5c5c5;
+  background-color: #efefef;
+  transition: background 2s linear,border 2s linear,color 2s linear;
+}
+.button__delete:hover{
+  background-color: #969696;
+  border-color: #e2e2e2;
+  color:#fff;
+}
+.favorites__data{
+  height: 25px;
+  padding-left: 20px;
+}
+.favorites__user,.favorites__url,.favorites__name{
+  display: inline-block;
+  min-width: 25%;
 }

@@ -7,14 +7,28 @@
     <input type="button" ng-click="searchClick()" value="кнопка">
 
     <div>
-        <ul ng-click="clickStar($event)" class="list__repos">
-            <li ng-repeat="repos in repositories" >
-                <img src="app/img/star.svg" alt="" class="favorites" data-id="{{repos.id}}" ng-click="setFavorite(repos)">
-                {{repos.owner.login}}
-                {{repos.name}}
-                <a href="{{repos.html_url}}">
-                    link GitHub repositories
-                </a>
+        <ul ng-click="clickStar($event)" class="list__repos" id="list__repos">
+            <li class="repositories__data-head">
+                <div class="repositories__star"></div>
+                <div class="repositories__user">nickname user</div>
+                <div class="repositories__name">name of a repository</div>
+                <div class="repositories__url">reference to a repository</div>
+            </li>
+            <li ng-repeat="repos in repositories" on-finish-render="ngRepeatFinished" class="repositories__data">
+                <!--<img src="app/img/star.svg" alt="" class="favorites" data-id="{{repos.id}}" ng-click="setFavorite(repos)">-->
+                <svg version="1.1" class="favorites" data-id="{{repos.id}}" ng-click="setFavorite(repos)" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+	 viewBox="0 0 426.667 426.667" style="enable-background:new 0 0 426.667 426.667;" xml:space="preserve">
+<polygon points="213.333,10.441 279.249,144.017 426.667,165.436 320,269.41 345.173,416.226 213.333,346.91
+	81.485,416.226 106.667,269.41 0,165.436 147.409,144.017 "/>
+</svg>
+                <div class="repositories__user">{{repos.owner.login}}</div>
+                <div class="repositories__name">{{repos.name}}</div>
+                <div class="repositories__url">
+                    <a href="{{repos.html_url}}">
+                        link GitHub repositories
+                    </a>
+                </div>
+
             </li>
         </ul>
     </div>

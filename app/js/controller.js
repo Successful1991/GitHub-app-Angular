@@ -5,65 +5,104 @@
     .module('GitHubClient',[])
     .controller('GitHubHomeCtrl', GitHubHomeCtrl)
     .controller('GitHubFavoriteCtrl', GitHubFavoriteCtrl)
-    .controller('GitHubContactCtrl', GitHubContactCtrl);
+    .controller('GitHubContactCtrl', GitHubContactCtrl)
+    .directive('onFinishRender', onFinishRender);
 
   GitHubHomeCtrl.$inject = ['$scope', 'storage'];
   GitHubFavoriteCtrl.$inject = ['$scope', 'storage'];
   GitHubContactCtrl.$inject = ['$scope', 'storage'];
 
+   function onFinishRender($timeout) {
+     return {
+       restrict: 'A',
+       link: function (scope, element, attr) {
+         if (scope.$last === true) {
+           $timeout(function () {
+             scope.$emit('ngRepeatFinished');
+           });
+         }
+       }
+     }}
 
-  function GitHubHomeCtrl($scope,storage) {
-    $scope.input = "project";
-    $scope.searchClick = searchClick;
+     function GitHubHomeCtrl($scope, storage) {
 
-    $scope.user = user();
-    $scope.repositories = repositories();
+       $scope.$on('ngRepeatFinished', function () {
+         storage.checkRepeatFavoriteRepos();
+       });
 
+       $scope.input = "project";
+       $scope.searchClick = searchClick;
 
-    function user() {
-      return storage.getUser();
-    }
+       $scope.user = user();
+       $scope.repositories = repositories();
 
-    function repositories() {
-      return storage.getRepositories();
-    }
+       function user() {
+         return storage.getUser();
+       }
 
-
-    function searchClick() {
-      if ($scope.input.length > 0) {
-        storage.httpGetRequest($scope.input)
-        .then(function (data) {
-          $scope.repositories = data;
-        })
-      }
-    }
-
-
-    $scope.setFavorite = addFavorite;
-    function addFavorite(repo) {
-      return storage.setFavoriteRepositories(repo);
-    }
-  }
+       function repositories() {
+         return storage.getRepositories();
+       }
 
 
-  function GitHubFavoriteCtrl($scope,storage) {
+       function searchClick() {
+         if ($scope.input.length > 0) {
+           storage.httpGetRequest($scope.input)
+             .then(function (data) {
+               $scope.repositories = data;
+             })
+         }
 
-    $scope.seeFavorite = seeFavorite();
-    $scope.delFavorite = delFavorite;
-
-    function seeFavorite(){
-      return storage.getFavoriteRepositories();
-    }
-
-    function delFavorite(delRepos) {
-      return storage.delFavoriteRepositories(delRepos);
-    }
-
-  }
+       }
 
 
-  function GitHubContactCtrl($scope,storage) {
+       $scope.setFavorite = addFavorite;
 
-  }
+       function addFavorite(repo) {
+         return storage.setFavoriteRepositories(repo);
+       }
+
+       // function checkRepeatFavoriteRepos(){
+       // let allList = document.getElementById('list__repos');
+       // let list = allList.getElementsByTagName('img');
+       // console.log(allList);
+       // console.log(list);
+       // for(let i;i=list.length;i>0){
+       //   storage.$localStorage.favoriteRepositories.forEach((favorit) => {
+       //     if( listick.dataset.id === favorit.id){
+       //       console.log('sdvs');
+       //     }
+       //   })
+       // }
+       //
+       //
+       // // list.forEach((listick) => {
+       // //
+       // // })
+       // }
+
+
+     }
+
+
+     function GitHubFavoriteCtrl($scope, storage) {
+
+       $scope.seeFavorite = seeFavorite();
+       $scope.delFavorite = delFavorite;
+
+       function seeFavorite() {
+         return storage.getFavoriteRepositories();
+       }
+
+       function delFavorite(delRepos) {
+         return storage.delFavoriteRepositories(delRepos);
+       }
+
+     }
+
+
+     function GitHubContactCtrl($scope, storage) {
+
+     }
 
 })();

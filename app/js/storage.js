@@ -16,7 +16,8 @@
       getRepositories: getRepositories,
       getFavoriteRepositories: getFavoriteRepositories,
       setFavoriteRepositories: setFavoriteRepositories,
-      delFavoriteRepositories:delFavoriteRepositories
+      delFavoriteRepositories: delFavoriteRepositories,
+      checkRepeatFavoriteRepos: checkRepeatFavoriteRepos
     };
 
     if(!Array.isArray($localStorage.favoriteRepositories)){
@@ -28,14 +29,11 @@
     function searchOption() {
       let check = document.getElementById('user');
       let users = document.getElementById('searchInput');
-      console.log(check.checked);
 
       if (check.checked === true) {
-        console.log('https://api.github.com/users/'+users.value+'/repos');
         return 'https://api.github.com/users/'+users.value+'/repos';
       }
       else {
-        console.log('https://api.github.com/search/repositories?q=' + users.value);
         return 'https://api.github.com/search/repositories?q=' + users.value+"";
       }
     }
@@ -48,6 +46,7 @@
 
           if(response && response.data && response.data.items) {
             setRepositories(response.data.items);
+            console.log(response);
             return response.data.items
           }
           else if (response && response.data) {
@@ -83,6 +82,8 @@
 
       if($localStorage.favoriteRepositories.length === 0 ){
         $localStorage.favoriteRepositories.push(repo);
+        checkRepeatFavoriteRepos();
+
       } else{
 
         $localStorage.favoriteRepositories.forEach((res) => {
@@ -90,9 +91,13 @@
             return favoriteRepeats = true;
           }
         });
-
-        favoriteRepeats?console.log("the repository is already added"):$localStorage.favoriteRepositories.push(repo);
+        if(favoriteRepeats===false){
+          $localStorage.favoriteRepositories.push(repo);
+          checkRepeatFavoriteRepos();
+        }
+        //favoriteRepeats?console.log("the repository is already added"):$localStorage.favoriteRepositories.push(repo);
       }
+
     }
 
     function delFavoriteRepositories(delRepos) {
@@ -101,13 +106,24 @@
 
       storageItems.forEach((del,i)=>{
         if(del.id === delRepos.id){
-
           storageItems.splice(i,1);
           localStorage.removeItem('favoriteRepositories');
           return localStorage.setItem('favoriteRepositories',storageItems);
         }}
-      )}
+      );
+    }
 
+
+    function checkRepeatFavoriteRepos(){
+        $localStorage.favoriteRepositories.forEach((favRepos) => {
+          let list = document.getElementById('list__repos').getElementsByTagName('svg');
+          for(let y=list.length-1;y>=0;y--){
+            if(parseInt(list[y].dataset.id) === favRepos.id){
+              list[y].classList.add('star-blue');
+            }
+          }
+    })
+  }
   }
 
 
