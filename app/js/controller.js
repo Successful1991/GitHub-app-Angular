@@ -31,7 +31,10 @@
        });
 
        $scope.input = "project";
+
        $scope.searchClick = searchClick;
+       $scope.setFavorite = addFavorite;
+       $scope.keyClick = keyClick;
 
        $scope.user = user();
        $scope.repositories = repositories();
@@ -51,35 +54,17 @@
              .then(function (data) {
                $scope.repositories = data;
              })
-         }
-
-       }
-
-
-       $scope.setFavorite = addFavorite;
+         }}
 
        function addFavorite(repo) {
          return storage.setFavoriteRepositories(repo);
        }
 
-       // function checkRepeatFavoriteRepos(){
-       // let allList = document.getElementById('list__repos');
-       // let list = allList.getElementsByTagName('img');
-       // console.log(allList);
-       // console.log(list);
-       // for(let i;i=list.length;i>0){
-       //   storage.$localStorage.favoriteRepositories.forEach((favorit) => {
-       //     if( listick.dataset.id === favorit.id){
-       //       console.log('sdvs');
-       //     }
-       //   })
-       // }
-       //
-       //
-       // // list.forEach((listick) => {
-       // //
-       // // })
-       // }
+       function keyClick(event) {
+          if(event.keyCode === 13){
+            searchClick();
+          }
+       }
 
 
      }

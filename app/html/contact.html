@@ -2,15 +2,18 @@
     <ul>
         <li>
             <div class="link">e-mail :</div>
-            <a href="mailto:19successful91@gmail.com">19successful91@gmail.com</a>
+            <a href="mailto:19successful91@gmail.com" ng-show="mail">19successful91@gmail.com</a>
+            <input type="button" ng-click="mail = !mail" value="показать/скрыть">
         </li>
         <li>
             <div class="link">tel:</div>
-            <a href="tel:380682479906" class="link">+380682479906</a>
+            <a href="tel:380682479906" ng-show="tel">+380682479906</a>
+            <input type="button" ng-click="tel = !tel" value="показать/скрыть">
         </li>
         <li>
             <div class="link">skype:</div>
-            <a href="skype:successful1991m?chat" class="link">successful1991m</a>
+            <a href="skype:successful1991m?chat" ng-show="ngSkype">successful1991m</a>
+            <input type="button" ng-click="ngSkype = !ngSkype" value="показать/скрыть">
         </li>
     </ul>
 

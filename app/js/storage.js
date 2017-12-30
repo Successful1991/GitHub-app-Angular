@@ -57,53 +57,59 @@
         })
     }
 
+
     function getUser() {
       return $localStorage.userName
     }
+
 
     function setUser(user) {
       $localStorage.userName = user;
     }
 
+
     function setRepositories(repositories) {
       $localStorage.httpRepositories = repositories;
     }
+
 
     function getRepositories() {
       return $localStorage.httpRepositories;
     }
 
+
     function getFavoriteRepositories() {
       return $localStorage.favoriteRepositories;
     }
 
+
     function setFavoriteRepositories(repo) {
+      $localStorage.favoriteRepositories.length === 0 ? addFavoriteRepos(repo) : favoriteCheckOnRepetition(repo);
+    }
+
+
+    function favoriteCheckOnRepetition (repo){
       let favoriteRepeats = false;
 
-      if($localStorage.favoriteRepositories.length === 0 ){
-        $localStorage.favoriteRepositories.push(repo);
-        checkRepeatFavoriteRepos();
+      $localStorage.favoriteRepositories.forEach((res) => {
+        repo.id === res.id ? favoriteRepeats = true : favoriteRepeats = false;
+      });
 
-      } else{
-
-        $localStorage.favoriteRepositories.forEach((res) => {
-          if(repo.id === res.id) {
-            return favoriteRepeats = true;
-          }
-        });
-        if(favoriteRepeats===false){
-          $localStorage.favoriteRepositories.push(repo);
-          checkRepeatFavoriteRepos();
-        }
-        //favoriteRepeats?console.log("the repository is already added"):$localStorage.favoriteRepositories.push(repo);
+      if( favoriteRepeats === false){
+        addFavoriteRepos(repo);
       }
-
     }
+
+
+    function addFavoriteRepos(repo) {
+      $localStorage.favoriteRepositories.push(repo);
+      checkRepeatFavoriteRepos();
+    }
+
 
     function delFavoriteRepositories(delRepos) {
 
       let storageItems = $localStorage.favoriteRepositories;
-
       storageItems.forEach((del,i)=>{
         if(del.id === delRepos.id){
           storageItems.splice(i,1);
@@ -115,15 +121,15 @@
 
 
     function checkRepeatFavoriteRepos(){
-        $localStorage.favoriteRepositories.forEach((favRepos) => {
-          let list = document.getElementById('list__repos').getElementsByTagName('svg');
-          for(let y=list.length-1;y>=0;y--){
-            if(parseInt(list[y].dataset.id) === favRepos.id){
-              list[y].classList.add('star-blue');
-            }
+      $localStorage.favoriteRepositories.forEach((favRepos) => {
+        let list = document.getElementById('list__repos').getElementsByTagName('svg');
+        for(let y=list.length-1;y>=0;y--){
+          if(parseInt(list[y].dataset.id) === favRepos.id){
+            list[y].classList.add('star-blue');
           }
-    })
-  }
+        }
+      })
+    }
   }
 
 

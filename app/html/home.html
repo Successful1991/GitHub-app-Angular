@@ -3,11 +3,11 @@
     <label><input type="radio" name="radio" id="user" checked>user</label>
     <label><input type="radio" name="radio" id="repository">repository</label>
     <br>
-    <input type="text" id="searchInput" ng-model="user">
-    <input type="button" ng-click="searchClick()" value="кнопка">
+    <input type="text" id="searchInput" ng-model="user" ng-keydown="keyClick($event)">
+    <input type="button" ng-click="searchClick()"  value="кнопка">
 
     <div>
-        <ul ng-click="clickStar($event)" class="list__repos" id="list__repos">
+        <ul class="list__repos" id="list__repos">
             <li class="repositories__data-head">
                 <div class="repositories__star"></div>
                 <div class="repositories__user">nickname user</div>

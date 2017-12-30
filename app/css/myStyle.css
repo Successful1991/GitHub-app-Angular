@@ -28,10 +28,10 @@ li {
   margin: 0;
   padding-left: 100px;
   color: #d5d5d5;
-  font-family: Georgia; }
+  font-family: "Segoe UI"; }
   .navigation a, .navigation a:hover, .navigation a:active, .navigation a:focus, .navigation a:visited {
     text-decoration: none;
-    color: #1729B0; }
+    color: #000; }
 
 .list {
   padding: 0 20px;
@@ -49,7 +49,7 @@ li {
   margin-top: 50px;
   margin-left: 100px;
   font-size: 20px;
-  font-family: "Times New Roman"; }
+  font-family: "Segoe UI"; }
 
 .link {
   display: inline-block;
@@ -93,7 +93,7 @@ li {
   height: 25px;
   width: 768px;
   font-size: 18px;
-  font-family: "Arial";
+  font-family: "Segoe UI";
   background: #c5c5c5;
   margin-bottom: 10px; }
 
@@ -125,3 +125,7 @@ li {
 .favorites__user, .favorites__url, .favorites__name {
   display: inline-block;
   min-width: 25%; }
+
+.ngSkype {
+  position: relative;
+  left: 80px; }
